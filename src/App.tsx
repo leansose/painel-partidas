@@ -1,6 +1,7 @@
 //IMPORTS
 
 import UserGreeting from "./components/userGreeting"
+import Soma from "./components/soma"
 
 export default function App() {
 
@@ -12,6 +13,7 @@ export default function App() {
     //HTML
     <>
       <UserGreeting user = { user }/>
+      <Soma a={3} b={7} />
     </>
   )
 }

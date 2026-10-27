@@ -1,5 +1,7 @@
 //IMPORTS
-import { UserGreetingProps } from "./props/UserGreetingProps"
+
+import type { UserGreetingProps } from "../props/UserGreetingProps"
+
 //TYPES / INTERFACE
 
 /*
