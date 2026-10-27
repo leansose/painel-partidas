@@ -4,6 +4,7 @@ import UserGreeting from "./components/userGreeting"
 import Soma from "./components/soma"
 import UserCard from "./components/userCard"
 import Mailbox from "./components/mailbox"
+import DepartureList from "./components/departedList"
 
 export default function App() {
 
@@ -26,7 +27,12 @@ export default function App() {
       id: "A-02"
     }
 
-  ] 
+  ]
+
+  const departures: Departure[] = [
+    { id: "ic-1842", destination: "Sintra", time: "18:42", platform: 3 },
+    { id: "ir-1850", destination: "Cascais", time: "18:50", platform: 5 },
+  ]
 
   return (
     //HTML
@@ -37,6 +43,8 @@ export default function App() {
       <UserGreeting />
       <Mailbox unreadMessages={[]} />
       <Mailbox unreadMessages={messages} />
+
+      <DepartureList departures={departures}/>
     </>
   )
 }

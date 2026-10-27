@@ -22,9 +22,9 @@ export default function Mailbox({ unreadMessages }: MailboxProps) {
                     <InboxUnreadIcon size={20} />
             }
             <div>
-                <h2>Caixa de Correio</h2> {
+                <h2 className="border-l-2 border-dashed text-3xl">Caixa de Correio</h2> {
                     unreadMessages.length > 0 && (
-                        <p>Tens {unreadMessages.length} mensagens por ler.</p>
+                        <p className="text-3xl bg-amber-300">Tens {unreadMessages.length} mensagens por ler.</p>
                     )}
             </div>
         </section>

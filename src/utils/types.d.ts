@@ -5,3 +5,10 @@ export interface User {
     avatarUrl: string;
     prefix?: string
 }
+
+export interface Departure {
+    id: string
+    destination: string
+    time: string
+    platform: number
+}
