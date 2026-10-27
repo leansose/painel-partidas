@@ -9,8 +9,8 @@ export default function Soma({a, b}: SomaProps) {
     return (
         //HTML
         <div className="bg-blue-800 p-7 text-7xl text-amber-200">
-            <h1 className="bg-red-900 rounded-b-2xl font-extrabold">Resultado da Soma</h1>
-            <p>{a} + {b} = {soma}</p>
+            <h1 className="bg-red-900 rounded-b-2xl font-extrabold">Resultado da Soma de {a} + {b}</h1>
+            <p>{soma}</p>
         </div>
     )
 }
