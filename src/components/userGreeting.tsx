@@ -17,11 +17,14 @@ interface UserGreetingProps {
 */
 
 interface UserGreetingProps {
-    user: User
+    user?: User
 }
 
 export default function UserGreeting({ user }: UserGreetingProps) {
     //LOGICA
+    if (!user) {
+        return <h1 className="font-extrabold">Olá, Anónimo</h1>
+    }
     return (
         //HTML
         <div className="bg-red-500 p-4">
