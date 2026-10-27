@@ -5,6 +5,7 @@ import Soma from "./components/soma"
 import UserCard from "./components/userCard"
 import Mailbox from "./components/mailbox"
 import DepartureList from "./components/departedList"
+import PlatformOccupancy from "./components/platformOccupancy"
 
 export default function App() {
 
@@ -29,7 +30,7 @@ export default function App() {
 
   ]
 
-  const departures: Departure[] = [
+  const departures = [
     { id: "ic-1842", destination: "Sintra", time: "18:42", platform: 3 },
     { id: "ir-1850", destination: "Cascais", time: "18:50", platform: 5 },
   ]
@@ -44,7 +45,8 @@ export default function App() {
       <Mailbox unreadMessages={[]} />
       <Mailbox unreadMessages={messages} />
 
-      <DepartureList departures={departures}/>
+      <DepartureList departures={departures} />
+      <PlatformOccupancy/>
     </>
   )
 }
