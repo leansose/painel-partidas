@@ -1,62 +1,49 @@
-//IMPORTS
+import { useEffect, useState } from "react";
 
-import UserGreeting from "./components/userGreeting"
-import Soma from "./components/soma"
-import UserCard from "./components/userCard"
-import Mailbox from "./components/mailbox"
-import DepartureList from "./components/departedList"
-import PlatformOccupancy from "./components/platformOccupancy"
-import CoffeeMachine from "./components/coffeeMachine"
-import PlaylistPanel from "./components/playlistPanel"
-import MatchActions from "./components/matchActions"
-import ScorePanel from "./components/scorePanel"
+interface CatTypes {
+  image_link: string
+  name: string
+  inteligence: number
+  origin: string
+}
+
+// https://api.api-ninjas.com/v1/cats?name=abyssinian
 
 export default function App() {
 
-  //LOGICA
+  //Logica
+  const [catData, setCatData] = useState<CatTypes[]>()
 
-  const user = {
-    id: "001",
-    primeiro: "Alberto",
-    ultimo: "Menezes",
-    avatarUrl: "./src/assets/avatar.jpg"
-  }
+  useEffect(() => {
+    console.log('useEffect is Open')
 
-  const messages = [
-    {
-      text: "hey, olá",
-      id: "A-01"
-    },
-    {
-      text: "hey, olá Deus na Terra",
-      id: "A-02"
+    async function fetchCats(): Promise<void> {
+      const response: Response = await fetch("https://api.api-ninjas.com/v1/cats?name=persian", {
+        headers: { 'X-Api-Key': '2cmvSTrujuShff8fIeITHHkLtzMoWSn8y3psIoU2' },
+      });
+
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+      const data: CatTypes[] = await response.json();
+      setCatData(data);
     }
+    fetchCats()
 
-  ]
+  }, [])
 
-  const departures = [
-    { id: "ic-1842", destination: "Sintra", time: "18:42", platform: 3 },
-    { id: "ir-1850", destination: "Cascais", time: "18:50", platform: 5 },
-  ]
 
   return (
-    //HTML
     <>
-      <UserGreeting user = { user }/>
-      <Soma a={3} b={7} />
-      <UserCard user={user} onSelect={(userId) => console.log(userId)} />
-      <UserGreeting />
-      <Mailbox unreadMessages={[]} />
-      <Mailbox unreadMessages={messages} />
-
-      <DepartureList departures={departures} />
-      <PlatformOccupancy/>
-      <CoffeeMachine/>
-      <PlaylistPanel/>
-
-      <ScorePanel/>
-      <MatchActions/>
-
+      <div>
+        {catData?.map((item) => (
+          <div key={item.name}>
+            <img src={item.image_link} alt={item.name} />
+            <p>Name: {item.name}</p>
+            <p>Intelligence: {item.inteligence}</p>
+            <p>Origin: {item.origin}</p>
+          </div>
+        ))}
+      </div>
     </>
   )
 }

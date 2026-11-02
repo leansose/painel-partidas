@@ -18,7 +18,6 @@ export default function CoffeeMachine() {
             <button onClick={serveCoffee}>
                 {coffeeServed} cafés
             </button>
-            <p>------------</p>
             <button onClick={serveThree}>
                 Servir 3 cafés
             </button>
