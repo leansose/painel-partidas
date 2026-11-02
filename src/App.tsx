@@ -6,6 +6,10 @@ import UserCard from "./components/userCard"
 import Mailbox from "./components/mailbox"
 import DepartureList from "./components/departedList"
 import PlatformOccupancy from "./components/platformOccupancy"
+import CoffeeMachine from "./components/coffeeMachine"
+import PlaylistPanel from "./components/playlistPanel"
+import MatchActions from "./components/matchActions"
+import ScorePanel from "./components/scorePanel"
 
 export default function App() {
 
@@ -47,6 +51,12 @@ export default function App() {
 
       <DepartureList departures={departures} />
       <PlatformOccupancy/>
+      <CoffeeMachine/>
+      <PlaylistPanel/>
+
+      <ScorePanel/>
+      <MatchActions/>
+
     </>
   )
 }
